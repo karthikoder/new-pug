@@ -1,0 +1,163 @@
+doctype html
+head
+  title rock paper scissors
+  link(rel='stylesheet' type='text/css' href='source.css')
+  // Latest compiled and minified CSS
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css')
+  // jQuery library
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+  // Latest compiled JavaScript
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js')
+h1 PLAY ROCK PAPER SCISSORS
+.sb
+  h2 SCORE BOARD
+  .board1
+    p your score
+    h4#score1
+  .board2
+    p computer&apos;s score
+    h4#score2
+  h3#win(style='width: 100%')
+#img
+  img#img1(src='rpss.jpg')
+  img#img2(src='')
+.choice
+  p press any button
+  button(onclick='rock()') rock
+  button(onclick='paper()') paper
+  button(onclick='scissers()') scissors
+script(type='text/javascript').
+  var score1=0;
+  var score2=0;
+  document.getElementById('score1').innerHTML=score1;
+  document.getElementById('score2').innerHTML=score2;
+  document.getElementById('win').innerHTML="come on start the game....!!!";
+  document.getElementById('win').style.color="red";
+  function rock()
+  {
+  document.getElementById('img1').src='rock.jpg';
+  var cp=Math.floor(Math.random()*3)+1;
+  if (cp==1)
+  {
+  document.getElementById('img2').src='rock.jpg';
+  document.getElementById('score1').innerHTML=score1;
+  document.getElementById('score2').innerHTML=score2;
+  document.getElementById('win').innerHTML="awwww!!.... it's a tie";
+  document.getElementById('win').style.color="black";
+  check();
+  }
+  else if (cp==2)
+  {
+  document.getElementById('img2').src='paper.jpg';
+  score2=score2+1;
+  document.getElementById('score1').innerHTML=score1;
+  document.getElementById('score2').innerHTML=score2;
+  document.getElementById('win').innerHTML="Alas!!.....computer won this time!!!!";
+  document.getElementById('win').style.color="red";
+  check();
+  }
+  else
+  {
+  document.getElementById('img2').src='scissers.jpg';
+  score1=score1+1;
+  document.getElementById('score1').innerHTML=score1;
+  document.getElementById('score2').innerHTML=score2;
+  document.getElementById('win').innerHTML="hurray!!......you won !...keep it up";
+  document.getElementById('win').style.color="green";
+  check();
+  }
+  }
+  function paper()
+  {
+  document.getElementById('img1').src='paper.jpg';
+  var cp=Math.floor(Math.random()*3)+1;
+  if (cp==2)
+  {
+  document.getElementById('img2').src='paper.jpg';
+  document.getElementById('score1').innerHTML=score1;
+  document.getElementById('score2').innerHTML=score2;
+  document.getElementById('win').innerHTML="awwww!!.... it's a tie";
+  document.getElementById('win').style.color="black";
+  check();
+  }
+  else if (cp==1)
+  {
+  document.getElementById('img2').src='rock.jpg';
+  score1=score1+1;
+  document.getElementById('score1').innerHTML=score1;
+  document.getElementById('score2').innerHTML=score2;
+  document.getElementById('win').innerHTML="hurray!!......you won !...keep it up";
+  document.getElementById('win').style.color="green";
+  check();
+  }
+  else
+  {
+  document.getElementById('img2').src='scissers.jpg';
+  score2=score2+1;
+  document.getElementById('score1').innerHTML=score1;
+  document.getElementById('score2').innerHTML=score2;
+  document.getElementById('win').innerHTML="Alas!!.....computer won this time!!!!";
+  document.getElementById('win').style.color="red";
+  check();
+  }
+  }
+  function scissers()
+  {
+  document.getElementById('img1').src='scissers.jpg';
+  var cp=Math.floor(Math.random()*3)+1;
+  if (cp==3)
+  {
+  document.getElementById('img2').src='scissers.jpg';
+  document.getElementById('score1').innerHTML=score1;
+  document.getElementById('score2').innerHTML=score2;
+  document.getElementById('win').innerHTML="awwww!!.... it's a tie";
+  document.getElementById('win').style.color="black";
+  check();
+  }
+  if (cp==2)
+  {
+  document.getElementById('img2').src='paper.jpg';
+  score1=score1+1;
+  document.getElementById('score1').innerHTML=score1;
+  document.getElementById('score2').innerHTML=score2;
+  document.getElementById('win').innerHTML="hurray!!......you won !...keep it up";
+  document.getElementById('win').style.color="green";
+  check();
+  }
+  else
+  {
+  document.getElementById('img2').src='rock.jpg';
+  score2=score2+1;
+  document.getElementById('score1').innerHTML=score1;
+  document.getElementById('score2').innerHTML=score2;
+  document.getElementById('win').innerHTML="Alas!!.....computer won this time!!!!";
+  document.getElementById('win').style.color="red";
+  check();
+  }
+  }
+  function check()
+  {
+  if (score1==10)
+  {
+  alert("hey...you won the game");
+  score1=0;
+  score2=0;
+  document.getElementById('score1').innerHTML=score1;
+  document.getElementById('score2').innerHTML=score2;
+  document.getElementById('win').innerHTML="come on...you must win this time also ";
+  }
+  else if(score2==10)
+  {
+  alert("computer won the game better luck next time");
+  score1=0;
+  score2=0;
+  document.getElementById('score1').innerHTML=score1;
+  document.getElementById('score2').innerHTML=score2;
+  document.getElementById('win').innerHTML="no problem...this game must be yours try your luck again...";
+  }
+  else
+  {
+  score1=score1;
+  score2=score2;
+  }
+  }
